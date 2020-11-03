@@ -6,6 +6,7 @@ The options range from signing in as late to signing out and on site, when on an
 you will need to create a Students.txt file and allocate a Unique barcode ID, a Students name, On site and Time
 
 ------- EXAMPLE -----
+
 016519;James Duncan;On Site;No;Time
 
 016531;Donald Trump;On Site;No;Time
