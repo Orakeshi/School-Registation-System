@@ -1,0 +1,698 @@
+WindowManager:
+    MainWindow:
+    StudentWindow:
+    OnSiteWindow:
+    OffSiteWindow:
+    AllWindow:
+    TransportWindow:
+    OversleptWindow:
+    SickWindow:
+    AccidentWindow:
+    MedicalWindow:
+    OtherWindow:
+    ListStudentCode:
+
+<MainWindow>:
+    name: "main"
+    studentid: studentid
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Image:
+            source: "Images/logo.jpg"
+            size: self.texture_size
+
+
+        TextInput:
+            id: studentid
+            multiline: False
+            opacity: 1
+            size_hint: 0.8, 0.1
+            pos_hint: {"x": 0.05, "top": 0.9 }
+            font_size: 37
+
+        Button:
+            text: "Search"
+            width: 100
+            height: 50
+            size_hint: .1, .1
+            pos_hint: {"x": 0.8, "top": 0.9 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.searchStudent()
+
+        Button:
+            text: "On Site"
+            width: 100
+            height: 50
+            size_hint: .2, .2
+            pos_hint: {"x": 0.05, "top": 0.7 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.onsite()
+
+        Button:
+            text: "Off Site"
+            width: 100
+            height: 50
+            size_hint: .2, .2
+            pos_hint: {"x": 0.05, "top": 0.4 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.offsite()
+
+        Button:
+            text: "ALL"
+            width: 100
+            height: 50
+            size_hint: .4, .1
+            pos_hint: {"x": 0.65, "top": 0.7 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.lateall()
+
+        Button:
+            text: "Transport"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.65, "top": 0.6 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.latetransport()
+
+        Button:
+            text: "Overslept"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.65, "top": 0.5 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.lateoverslept()
+
+        Button:
+            text: "Sick"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.65, "top": 0.4 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.latesick()
+
+        Button:
+            text: "Accident"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.8, "top": 0.6 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.lateaccident()
+
+        Button:
+            text: "Medical"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.8, "top": 0.5 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.latemedical()
+
+        Button:
+            text: "Other"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.8, "top": 0.4 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.lateother()
+
+        Button:
+            text: "List Students Codes"
+            width: 100
+            height: 50
+            size_hint: .2, .2
+            pos_hint: {"x": 0.4, "top": 0.2 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.searchcodes()
+
+
+<OnSiteWindow>:
+    name: "onsite"
+    onsite: onsite
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: onsite
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<OffSiteWindow>:
+    name: "offsite"
+    offsite: offsite
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: offsite
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+
+<StudentWindow>:
+    name: "studentwindow"
+    studname: studname
+    studstatus: studstatus
+    studlate: studlate
+    studtime: studtime
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Image:
+            source: "Images/logo.jpg"
+            size: self.texture_size
+
+        Label:
+            text: "Student Name"
+            size_hint: 1, 1
+            font_size: 25
+            size_hint: .2, .1
+            pos_hint: {"x": 0.1, "top": 0.9 }
+
+
+        Label:
+            text: "Current Status"
+            size_hint: 1, 1
+            font_size: 25
+            size_hint: .2, .1
+            pos_hint: {"x": 0.3, "top": 0.9 }
+
+        Label:
+            text: "Late(reason)"
+            size_hint: 1, 1
+            font_size: 25
+            size_hint: .2, .1
+            pos_hint: {"x": 0.5, "top": 0.9 }
+
+        Label:
+            text: "Late Time"
+            size_hint: 1, 1
+            font_size: 25
+            size_hint: .2, .1
+            pos_hint: {"x": 0.7, "top": 0.9 }
+
+        Label:
+            id: studname
+            text: "Hmmm"
+            size_hint: 1, 1
+            font_size: 20
+            size_hint: .2, .1
+            pos_hint: {"x": 0.1, "top": 0.8 }
+
+        Label:
+            id: studstatus
+            text: "Hmmm"
+            size_hint: 1, 1
+            font_size: 20
+            size_hint: .2, .1
+            pos_hint: {"x": 0.3, "top": 0.8 }
+
+
+        Label:
+            id: studlate
+            text: "Hmmm"
+            size_hint: 1, 1
+            font_size: 20
+            size_hint: .2, .1
+            pos_hint: {"x": 0.5, "top": 0.8 }
+
+
+        Label:
+            id: studtime
+            text: "Hmmm"
+            size_hint: 1, 1
+            font_size: 20
+            size_hint: .2, .1
+            pos_hint: {"x": 0.7, "top": 0.8 }
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: .2, .2
+            pos_hint: {"x": 0.4, "top": 0.3 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+<AllWindow>:
+    name: "all"
+    lateall: lateall
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: lateall
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<TransportWindow>:
+    name: "all"
+    latetransport: latetransport
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: latetransport
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<OversleptWindow>:
+    name: "all"
+    lateoverslept: lateoverslept
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: lateoverslept
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<SickWindow>:
+    name: "all"
+    latesick: latesick
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: latesick
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<AccidentWindow>:
+    name: "all"
+    lateaccident: lateaccident
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: lateaccident
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<MedicalWindow>:
+    name: "all"
+    latemedical: latemedical
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: latemedical
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<OtherWindow>:
+    name: "all"
+    lateother: lateother
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: lateother
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+
+<ListStudentCode>:
+    name: "all"
+    liststudent: liststudent
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "Back Home"
+            width: 100
+            height: 50
+            size_hint: 1, .1
+            pos_hint: {"x": 0, "top": 1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.back()
+
+
+        ScrollView:
+            size_hint: 1, .9
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            TextInput:
+                id: liststudent
+                height: self.minimum_height
+                size_hint_y: None
+                readonly: True
+                text: ''
+                font_size: 25
+

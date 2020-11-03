@@ -1,0 +1,294 @@
+WindowManager:
+    ScanWindow:
+    MainWindow:
+    LateWindow:
+
+<ScanWindow>:
+    name: "scan"
+
+    studentid: studentid
+    scanbcode: scanbcode
+
+    FloatLayout:
+
+        TextInput:
+            id: studentid
+            multiline: False
+            opacity: 0
+            size_hint: 1, 1
+            on_text_validate:
+                root.manager.transition.direction = "left"
+                root.nextStep()
+
+
+        FloatLayout:
+            canvas.before:
+                Color:
+                    rgba: 0.043, 0.055, 0.333, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Button:
+                id: scanbcode
+                text: "Press and Scan Barcode!"
+                font_size: 35
+                size_hint: 1, .1
+                pos_hint: {"y": 0.01, "bottom": 1 }
+                on_release:
+                    root.fix()
+
+
+            Image:
+                source: "Images/logo.jpg"
+                size: self.texture_size
+
+
+
+
+
+<MainWindow>:
+    name: "main"
+    n: n
+    status: status
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Image:
+            source: "Images/logo.jpg"
+            size: self.texture_size
+
+        Button:
+            text: "On Site"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.05, "top": 0.8 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.signIn()
+
+        Button:
+            text: "Off Site"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.05, "top": 0.5 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.signOut()
+
+        Button:
+            text: "Late"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.65, "top": 0.8 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "left"
+                root.late()
+
+        Label:
+            id: status
+            size_hint: 1, .1
+            pos_hint: {"y": 0.01, "bottom": 1 }
+            text: "Status Message: "
+            font_size: 38
+
+        Button:
+            text: "Back"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.65, "top": 0.5 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Back()
+
+        Label:
+            id: n
+            size_hint: 1, .1
+            text: "Name: "
+            pos_hint: {"x": 0.01, "top": 0.9 }
+            font_size: 30
+
+
+
+<LateWindow>:
+    name: "late"
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Image:
+            source: "Images/logo.jpg"
+            size: self.texture_size
+
+        Button:
+            text: "Transport"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.1, "top": 0.9 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Transport()
+
+        Button:
+            text: "Overslept"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.1, "top": 0.6 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Overslept()
+
+        Button:
+            text: "Ill/Sick"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.1, "top": 0.3 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Sick()
+
+        Button:
+            text: "Accident"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.6, "top": 0.9 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Accident()
+
+        Button:
+            text: "Medical"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.6, "top": 0.6 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Medical()
+
+        Button:
+            text: "Other"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.6, "top": 0.3 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Other()
+
+        Button:
+            text: "Back"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.4, "top": 0.1 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Back()
+
+
+<AdminWindow>:
+    name: "admin"
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.043, 0.055, 0.333, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Image:
+            source: "Images/logo.jpg"
+            size: self.texture_size
+
+        Button:
+            text: "Quit System"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.1, "top": 0.9 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_press: app.stop()
+
+        Button:
+            text: "Reset Students Document"
+            width: 100
+            height: 50
+            size_hint: .3, .2
+            pos_hint: {"x": 0.1, "top": 0.6 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.ResetStudent()
+
+
+
+        Button:
+            text: "Back"
+            width: 100
+            height: 50
+            size_hint: .2, .1
+            pos_hint: {"x": 0.4, "top": 0.3 }
+            background_normal: ''
+            background_color: 0, 0, 0.5, 1
+            font_size: 30
+            on_release:
+                root.manager.transition.direction = "right"
+                root.Back()
